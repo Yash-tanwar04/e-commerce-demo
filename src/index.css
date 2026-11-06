@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #20392F;         /* Forest Green */
+    --color-maroon: #671F27;          /* Deep Festive Maroon */
+    --color-maroon-dark: #4A141A;
+    --color-gold: #C99A45;            /* Antique Gold */
+    --color-gold-light: #F4C56A;      /* Soft Amber Gold */
+    --color-gold-glow: rgba(244, 197, 106, 0.4);
+    --color-bg: #F8F1E7;              /* Warm Festive Cream */
+    --color-surface: #FFFFFF;
+    --color-text: #1D1D1B;
+    --color-muted: #89857E;
+    --color-sale: #C95745;
+    --color-border: #EADBCE;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-cursive {
+    font-family: 'Alex Brush', cursive;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1ECE4;
+}
+::-webkit-scrollbar-thumb {
+  background: #C99A45;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9D752E;
+}
+
+/* Festive Glassmorphism & Gold touches */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 154, 69, 0.25);
+}
+
+.gold-glass {
+  background: rgba(103, 31, 39, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 197, 106, 0.35);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0D0 0%, #F4C56A 50%, #C99A45 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(244, 197, 106, 0.25), inset 0 0 10px rgba(244, 197, 106, 0.15);
+}
+
+/* Diya Flame Flicker Animation */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px rgba(244, 197, 106, 0.85));
+  }
+  25% {
+    transform: scale(1.08, 0.94) rotate(-1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 9px rgba(244, 197, 106, 0.95));
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(1.5deg);
+    opacity: 0.90;
+    filter: drop-shadow(0 0 5px rgba(244, 197, 106, 0.75));
+  }
+  75% {
+    transform: scale(1.04, 0.98) rotate(-0.5deg);
+    opacity: 0.98;
+    filter: drop-shadow(0 0 8px rgba(244, 197, 106, 0.9));
+  }
+}
+
+.animate-flame {
+  animation: flameFlicker 1.8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Fairy Lights Twinkle */
+@keyframes fairyTwinkle {
+  0%, 100% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 4px rgba(244, 197, 106, 0.8));
+  }
+  50% {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 1px rgba(244, 197, 106, 0.3));
+  }
+}
+
+.animate-fairy-1 {
+  animation: fairyTwinkle 2.4s ease-in-out infinite;
+}
+.animate-fairy-2 {
+  animation: fairyTwinkle 2.4s ease-in-out infinite 0.8s;
+}
+.animate-fairy-3 {
+  animation: fairyTwinkle 2.4s ease-in-out infinite 1.6s;
+}
+
+/* Lantern Gentle Float */
+@keyframes lanternFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0.8deg);
+  }
+}
+
+.animate-lantern {
+  animation: lanternFloat 4.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Floating Gold Particle Sparkles */
+@keyframes sparkleShimmer {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.7) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkleShimmer 3s ease-in-out infinite;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-flame,
+  .animate-fairy-1,
+  .animate-fairy-2,
+  .animate-fairy-3,
+  .animate-lantern,
+  .animate-sparkle {
+    animation: none !important;
+  }
+}
